@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.out.println("Hello, Danny! I see you and you look nice today.");
+		System.out.println("Puts some pants on, Danny!");
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
 		frame.setSize(800, 800);
