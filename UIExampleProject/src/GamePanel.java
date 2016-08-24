@@ -15,7 +15,7 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel() {
 		System.out.println("Creating GamePanel()");
-		this.addMouseListener(new MyMouseListener());
+		this.addMouseListener(new MyMouseListener(this));
 		System.out.println("Mouse listeners: " + this.getMouseListeners());
 	}
 	public void addSquare(Square square) {
@@ -35,21 +35,27 @@ public class GamePanel extends JPanel {
 		}
 	}
 	
-	private class MyMouseListener implements MouseListener{
+	private static class MyMouseListener implements MouseListener{
+		final GamePanel p;
+		
+		public MyMouseListener(GamePanel p) {
+			super();
+			this.p = p;
+		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			int clickX = e.getX();
 			int clickY = e.getY();
 			System.out.println("clicked! x=" + clickX + ", y=" + clickY);
 
-			List<Square> squaresCopy = new ArrayList<>(squares);
+			List<Square> squaresCopy = new ArrayList<>(p.squares);
 			for(Square square : squaresCopy) {
 				// check if the X is within the square
 				if(clickX >= square.getX() && clickX <= square.getX() + square.getWidth()) {
 					// if we're here, then the click is within the bounds in the X dimension
 					if(clickY >= square.getY() && clickY <= square.getY() + square.getHeight()) {
 						// they clicked inside the square
-						removeSquare(square);
+						p.removeSquare(square);
 					}
 				}
 			}
