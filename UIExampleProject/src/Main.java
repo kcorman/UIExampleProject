@@ -24,11 +24,15 @@ public class Main {
 		Square sq2 = new Square(100, 500, 300, 300);
 		panel.addSquare(sq2);
 		
+		Square sq3 = new Square(300, 700, 100, 100);
+		panel.addSquare(sq3);
+		
 		frame.add(panel);
 		Random r = new Random();
 		while(true) {
 			sq1.update();
 			sq2.update();
+			sq3.update();
 			Thread.sleep(100);
 			frame.repaint();
 			
