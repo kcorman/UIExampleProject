@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class Main {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void notMain(String[] args) throws InterruptedException {
 		System.out.println("Puts some pants on, Danny!");
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
